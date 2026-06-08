@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial; color: #1a1a2e; }
+    h1 { color: #0f3460; }
+    table { width: 100%; border-collapse: collapse; }
+    th { background: #0f3460; color: white; padding: 8px; }
+    td { padding: 8px; border-bottom: 1px solid #ddd; }
+    .summary { background: #f0f4ff; padding: 16px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>{{ report_title }}</h1>
+  <p>Generated: {{ date }}</p>
+  <div class="summary"><h3>AI Insights</h3><p>{{ ai_summary }}</p></div>
+  <h2>Data</h2>
+  <table>
+    <tr>{% for h in headers %}<th>{{ h }}</th>{% endfor %}</tr>
+    {% for row in rows %}
+    <tr>{% for h in headers %}<td>{{ row[h] }}</td>{% endfor %}</tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
